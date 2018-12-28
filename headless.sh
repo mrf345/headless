@@ -90,7 +90,16 @@ set_vars () {
 
 start_vm () {
     # to start headless box and ssh to it
-    VBoxManage startvm "$VM_NAME" --type headless && ssh vagrant@localhost -p 2222
+    # $1 equals "true" if first time
+    VBoxManage startvm "$VM_NAME" --type headless
+    if [ "$1" == "true" ]; then
+        if [ ! -f "/Users/$(whoami)/.ssh/id_rsa" ]; then
+            ssh-keygen -t rsa
+        fi
+        # to login without password
+        ssh-copy-id vagrant@localhost -p 2222
+    fi
+    ssh vagrant@localhost -p 2222
 }
 
 
@@ -106,7 +115,7 @@ else
     VBoxManage import "$OVA_FILE" --vsys 0 --vmname "$VM_NAME"
     if is_there ;then
         VBoxManage sharedfolder add "$VM_NAME" --hostpath "$SHARED_FOLDER" --automount
-        start_vm
+        start_vm "true"
     else
         echo "Error: failed to import the .OVA file"
         exit 1
