@@ -4,7 +4,9 @@ To setup and launch your VirtualBox VM with ssh, and without leaving your trusty
 </h4>
 
 <br />
-<img src="https://audio-sequance.io/headless_lower.gif" width="130%">
+<p align='center'>
+<img src="https://audio-sequence.github.io/headless_lower.gif" width="80%">
+</p>
 <br />
 
 #### What does it do ?
