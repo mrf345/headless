@@ -4,10 +4,10 @@ To setup and launch your VirtualBox VM with ssh, and without leaving your trusty
 </h4>
 
 <br />
-<img src="" width="70%">
+<img src="https://audio-sequance.io/headless_lower.gif" width="130%">
 <br />
 
 #### What does it do ?
 - Setup a new VM the first time you run it. Stores its details in `~/.headless`
 - SSH automatically, if the VM is already setup and running. And if not it will do that.
-- `./headless.sh --stop` if you're too lazy to ssh and `shutdown`
+- `./headless.sh --stop` if you're too lazy to ssh and `shutdown -h`

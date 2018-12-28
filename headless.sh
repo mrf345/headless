@@ -93,7 +93,7 @@ start_vm () {
     VBoxManage startvm "$VM_NAME" --type headless && ssh vagrant@localhost -p 2222
 }
 
-
+set_vars
 if is_there ;then
     if is_running ;then
         ssh vagrant@localhost -p 2222
